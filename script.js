@@ -48,3 +48,55 @@ document.addEventListener("keyup", function(event) {
         AUDIO.currentTime = 0;
     }
 });
+
+
+
+
+
+ 
+
+document.addEventListener("touchstart", function(event) {
+
+    const targetElement = event.target;
+
+
+    if (targetElement && targetElement.classList.length > 0) {
+
+        // Extract the key from the class name (assuming your classes are structured like "letterA", "letterS", etc.)
+        const touchClass = targetElement.classList[0];
+        const key = touchClass.slice(6).toLowerCase(); // Get the character after "letter"
+
+        const USER_LETTER = letters[key];
+        const AUDIO = audioFiles[key];
+
+        if (USER_LETTER && AUDIO) {
+            USER_LETTER.classList.add("transform");
+            // Only play audio if it is not already playing
+            if (AUDIO.paused) {
+                AUDIO.play();
+            }
+        }
+    } 
+});
+  
+
+
+  document.addEventListener("touchend", function (event) {
+
+    const targetElement = event.target;
+   
+        if (targetElement.classList.length > 1) {
+            const key = targetElement.classList[0].charAt(6).toLowerCase(); // Extract the letter from the class
+            const USER_LETTER = letters[key];
+            const AUDIO = audioFiles[key];
+
+        if (USER_LETTER && AUDIO) {
+            USER_LETTER.classList.remove("transform");
+            // Stop the audio when the key is released
+            AUDIO.pause();
+            AUDIO.currentTime = 0;
+        }
+    }
+
+  });
+
