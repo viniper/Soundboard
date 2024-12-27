@@ -23,6 +23,7 @@ body {
     display: grid;
     gap: 20px;
     grid-template-columns: repeat(9, 1fr);
+    user-select: none;
 
 }
 
@@ -37,6 +38,7 @@ body {
     justify-content: center;
     color: rgb(247, 77, 77);
     background-color: rgba(0, 156, 253, 0.2);
+    user-select: none;
 
 }
 
@@ -44,12 +46,14 @@ div p{
     font-weight: 800;
     color: white;
     font-size: 1.5rem;
+    user-select: none;
 }
 
 .letter-desc {
     font-size: 0.75rem;
     font-weight: 300;
     color:coral;
+    user-select: none;
 }
 
 
